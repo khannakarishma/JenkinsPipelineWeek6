@@ -19,10 +19,7 @@ environment {
             echo "Automation Tool Used: Maven "
             
             echo " _______________________________Description_________________________________"
-            echo "About Maven: Maven is primarily a build automation and project management tool. 
-            It plays a crucial role in automating the compilation, packaging, and dependency management 
-            for your software projects."
-
+            echo "About Maven: Maven is primarily a build automation and project management tool. It plays a crucial role in automating the compilation, packaging, and dependency management for your software projects."
             }
             
         }
