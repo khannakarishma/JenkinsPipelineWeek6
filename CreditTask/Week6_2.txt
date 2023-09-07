@@ -15,7 +15,7 @@ environment {
         {
             steps
             {
-            echo "Compiling the source code, resolving dependencies, and packaging the application."
+            echo "Compiling the source code from directory $DIRECTORY_PATH, resolving dependencies, and packaging the application."
             echo "Automation Tool Used: Maven "
             
             echo " _______________________________Description_________________________________"
@@ -128,14 +128,14 @@ environment {
                 echo "Code Successfully Deployed"
                 mail to "karishma24khanna@gmail.com",
                 subject "Pipeline Run successful.",
-                body "Build was Successful"
+                body "Build was Successful. Code has been successfully deployed to $PRODUCTION_ENVIRONMENT environment."
                 }
                 failure
                 {
                 mail to "karishma24khanna@gmail.com",
                 subject "Pipeline Run successful.",
                 body "Build was Successful"
-                echo "Something went wrong. Please check your pipeline before deployment"
+                echo "Something went wrong. Please check your pipeline before deployment."
                 }
             }
 
