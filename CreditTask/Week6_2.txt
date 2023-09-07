@@ -1,0 +1,145 @@
+
+pipeline {
+
+agent any 
+environment {
+    DIRECTORY_PATH = 'Home'
+    TESTING_ENVIRONMENT = 'Stage'
+    PRODUCTION_ENVIRONMENT= 'Karishma'
+}
+
+    stages 
+    {
+
+        stage('Build')
+        {
+            steps
+            {
+            echo "Compiling the source code, resolving dependencies, and packaging the application."
+            echo "Automation Tool Used: Maven "
+            
+            echo " _______________________________Description_________________________________"
+            echo "About Maven: Maven is primarily a build automation and project management tool. 
+            It plays a crucial role in automating the compilation, packaging, and dependency management 
+            for your software projects."
+
+            }
+            
+        }
+
+        stage('Test')
+        {
+            steps
+            {
+                step
+                {
+                    echo "Running unit tests."
+                    echo "Unit Tests Successfully Completed"
+                    echo "Automation Used: Pytest for unit tests"
+
+                    echo " _______________________________Description_________________________________"
+                    echo "Pytest is a popular testing framework for automating unit tests in Python. 
+                    It provides a simple and effective way to write and execute test cases for your Python code. "
+            
+                }
+
+                sleep 3
+
+                step
+                {
+                    echo "Running integration steps"
+                    echo "Integration Tests Successfully Completed"               
+                    echo "Automation Tool Used: Postman testing with scripts using JavaScript "
+
+                    echo " _______________________________Description_________________________________"
+                    echo "Postman allows user to write automated test scripts using JavaScript to validate API responses, 
+                    perform data-driven testing, and execute a series of test cases automatically."
+
+                }
+            
+            }
+        }
+
+        stage('Code Analysis')
+        {
+            steps
+            {
+            echo "Analyzing the codebase for issues such as code style violations and potential bugs."
+            echo "Automation Tool Used: SonarQube, Configured the Jenkins plugin to connect to SonarQube server and analyzed the code."
+            
+            echo " _______________________________Description_________________________________"
+            echo "SonarQube is primarily an analysis and reporting tool. While it can be integrated into your CI/CD pipeline to automatically analyze code quality and security issues in your codebase, it is not a security scanning tool in the traditional sense. Instead, it focuses on code quality and security analysis as part of your development process."
+
+            }
+        }
+
+        stage('Security Scan')
+        {
+            steps
+            {
+            echo "Detecting security vulnerabilities such as SQL injection, XSS (Cross-Site Scripting), and other common security threats."
+
+            echo " _______________________________Description_________________________________"
+            echo "Automation Tool Used: SonarQube, Integrated into CI/CD pipeline to automatically analyze code quality and security issues in the codebase."
+            }
+        }
+
+        stage('Integration Tests on Staging')
+        {
+            steps
+            {
+            echo "Run integration tests on the staging environment $TESTING_ENVIRONMENT to ensure the application functions as expected in a production-like environment."
+
+            echo " _______________________________Description_________________________________"
+            echo "Automation Tool Used: Postman testing with scripts using JavaScript "
+            }
+
+        }
+
+        stage('Deploy to Production')
+        {
+            steps
+            {
+           
+            timeout(time: 10, unit: 'SECONDS')
+            {
+                input message: 'Do you approve the continuation of Deployment?', ok: 'Approve'
+            }
+            
+                echo "Approval received. Continuing the pipeline."
+            }
+            
+        }
+
+        stage('Deployed to Production')
+        {
+            steps
+            {
+            echo "Deploying code to the $PRODUCTION_ENVIRONMENT environment"
+            }
+            post
+            {
+                always
+                {
+                echo "In Last Stage of Deployment."
+                }
+                success
+                {
+                echo "Code Successfully Deployed"
+                mail to "karishma24khanna@gmail.com",
+                subject "Pipeline Run successful.",
+                body "Build was Successful"
+                }
+                failure
+                {
+                mail to "karishma24khanna@gmail.com",
+                subject "Pipeline Run successful.",
+                body "Build was Successful"
+                echo "Something went wrong. Please check your pipeline before deployment"
+                }
+            }
+
+        }
+
+    }
+}
