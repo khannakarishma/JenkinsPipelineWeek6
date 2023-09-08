@@ -15,11 +15,11 @@ environment {
         {
             steps
             {
-            echo "Compiling the source code from directory $DIRECTORY_PATH, resolving dependencies, and packaging the application."
-            echo "Automation Tool Used: Maven "
-            
-            echo " _______________________________Description_________________________________"
-            echo "About Maven: Maven is primarily a build automation and project management tool. It plays a crucial role in automating the compilation, packaging, and dependency management for your software projects."
+                echo "Compiling the source code from directory $DIRECTORY_PATH, resolving dependencies, and packaging the application."
+                echo "Automation Tool Used: Maven "
+                
+                echo " _______________________________Description_________________________________"
+                echo "About Maven: Maven is primarily a build automation and project management tool. It plays a crucial role in automating the compilation, packaging, and dependency management for your software projects."
             }
             
         }
@@ -59,11 +59,11 @@ environment {
         {
             steps
             {
-            echo "Analyzing the codebase for issues such as code style violations and potential bugs."
-            echo "Automation Tool Used: SonarQube, Configured the Jenkins plugin to connect to SonarQube server and analyzed the code."
-            
-            echo " _______________________________Description_________________________________"
-            echo "SonarQube is primarily an analysis and reporting tool. While it can be integrated into your CI/CD pipeline to automatically analyze code quality and security issues in your codebase, it is not a security scanning tool in the traditional sense. Instead, it focuses on code quality and security analysis as part of your development process."
+                echo "Analyzing the codebase for issues such as code style violations and potential bugs."
+                echo "Automation Tool Used: SonarQube, Configured the Jenkins plugin to connect to SonarQube server and analyzed the code."
+                
+                echo " _______________________________Description_________________________________"
+                echo "SonarQube is primarily an analysis and reporting tool. While it can be integrated into your CI/CD pipeline to automatically analyze code quality and security issues in your codebase, it is not a security scanning tool in the traditional sense. Instead, it focuses on code quality and security analysis as part of your development process."
 
             }
         }
@@ -72,10 +72,10 @@ environment {
         {
             steps
             {
-            echo "Detecting security vulnerabilities such as SQL injection, XSS (Cross-Site Scripting), and other common security threats."
+                echo "Detecting security vulnerabilities such as SQL injection, XSS (Cross-Site Scripting), and other common security threats."
 
-            echo " _______________________________Description_________________________________"
-            echo "Automation Tool Used: SonarQube, Integrated into CI/CD pipeline to automatically analyze code quality and security issues in the codebase."
+                echo " _______________________________Description_________________________________"
+                echo "Automation Tool Used: SonarQube, Integrated into CI/CD pipeline to automatically analyze code quality and security issues in the codebase."
             }
         }
 
@@ -83,10 +83,10 @@ environment {
         {
             steps
             {
-            echo "Run integration tests on the staging environment $TESTING_ENVIRONMENT to ensure the application functions as expected in a production-like environment."
+                echo "Run integration tests on the staging environment $TESTING_ENVIRONMENT to ensure the application functions as expected in a production-like environment."
 
-            echo " _______________________________Description_________________________________"
-            echo "Automation Tool Used: Postman testing with scripts using JavaScript "
+                echo " _______________________________Description_________________________________"
+                echo "Automation Tool Used: Postman testing with scripts using JavaScript "
             }
 
         }
@@ -96,11 +96,11 @@ environment {
             steps
             {
            
-            timeout(time: 10, unit: 'SECONDS')
-            {
-                input message: 'Do you approve the continuation of Deployment?', ok: 'Approve'
-            }
-            
+                timeout(time: 10, unit: 'SECONDS')
+                {
+                    input message: 'Do you approve the continuation of Deployment?', ok: 'Approve'
+                }
+                
                 echo "Approval received. Continuing the pipeline."
             }
             
@@ -110,27 +110,27 @@ environment {
         {
             steps
             {
-            echo "Deploying code to the $PRODUCTION_ENVIRONMENT environment"
+                echo "Deploying code to the $PRODUCTION_ENVIRONMENT environment"
             }
             post
             {
                 always
                 {
-                echo "In Last Stage of Deployment."
+                    echo "In Last Stage of Deployment."
                 }
                 success
                 {
-                echo "Code Successfully Deployed"
-                mail to "karishma24khanna@gmail.com",
-                subject "Pipeline Run successful.",
-                body "Build was Successful. Code has been successfully deployed to $PRODUCTION_ENVIRONMENT environment."
+                    echo "Code Successfully Deployed"
+                    mail to: "karishma24khanna@gmail.com",
+                    subject: "Pipeline Run successful.",
+                    body: "Build was Successful. Code has been successfully deployed to $PRODUCTION_ENVIRONMENT environment."
                 }
                 failure
                 {
-                mail to "karishma24khanna@gmail.com",
-                subject "Pipeline Run successful.",
-                body "Build was Successful"
-                echo "Something went wrong. Please check your pipeline before deployment."
+                    echo "Something went wrong. Please check your pipeline before deployment."
+                    mail to: "karishma24khanna@gmail.com",
+                    subject: "Pipeline Run successful.",
+                    body: "Build was Successful"
                 }
             }
 
