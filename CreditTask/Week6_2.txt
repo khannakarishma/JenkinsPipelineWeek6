@@ -50,7 +50,7 @@ environment {
             {
                 success 
                 {
-                    emailtxt (
+                    emailext (
                     mail to: "karishma24khanna@gmail.com", 
                     subject: 'Unit & Integration Tests passed',
                     body: 'The unit and integration tests have passed successfully. Further stages in progress.',
