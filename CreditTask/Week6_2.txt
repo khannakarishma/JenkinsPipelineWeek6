@@ -59,10 +59,12 @@ environment {
                 }
                 failure 
                 {
-                    mail to: "karishma24khanna@gmail.com", 
+                    emailext (
+                    to: "karishma24khanna@gmail.com", 
                     subject: 'Unit & Integration Tests failed.',
                     body: 'The unit and integration tests failed. Please Check and Redeploy.',
-                    attachBuildLog: true
+                    attachLog: true
+                    )
                 }
 
             }
@@ -94,17 +96,21 @@ environment {
             {
                 success 
                 {
-                    mail to: "karishma24khanna@gmail.com", 
+                    emailext (
+                    to: "karishma24khanna@gmail.com", 
                     subject: 'Security Scan passed',
                     body: 'Security Scans have passed successfully. Further stages in progress.',
                     attachLog: true
+                    )
                 }
                 failure 
                 {
-                    mail to: "karishma24khanna@gmail.com", 
+                    emailext (
+                    to: "karishma24khanna@gmail.com", 
                     subject: 'Security Scan failed.',
                     body: 'Security Scan has failedd. Please Check and Redeploy.',
                     attachLog: true
+                    )
                 }
 
             }
@@ -123,17 +129,21 @@ environment {
             {
                 success 
                 {
-                    mail to: "karishma24khanna@gmail.com", 
+                    emailext (
+                    to: "karishma24khanna@gmail.com", 
                     subject: 'Staging test passed',
                     body: 'The staging environment tests have passed successfully. Further stages in progress.',
                     attachLog: true
+                    )
                 }
                 failure 
                 {
-                    mail to: "karishma24khanna@gmail.com", 
+                    emailext (
+                    to: "karishma24khanna@gmail.com", 
                     subject: 'Staging test failed.',
                     body: 'The staging environment tests has failed. Please Check and Redeploy.',
                     attachLog: true
+                    )
                 }
 
             }
@@ -169,18 +179,22 @@ environment {
                 success
                 {
                     echo "Code Successfully Deployed"
-                    mail to: "karishma24khanna@gmail.com",
+                    emailext (
+                    to: "karishma24khanna@gmail.com",
                     subject: "Pipeline Run successful.",
                     body: "Build was Successful. Code has been successfully deployed to $PRODUCTION_ENVIRONMENT environment.",
                     attachLog: true
+                    )
                 }
                 failure
                 {
                     echo "Something went wrong. Please check your pipeline before deployment."
-                    mail to: "karishma24khanna@gmail.com",
+                    emailext (
+                    to: "karishma24khanna@gmail.com",
                     subject: "Pipeline Run successful.",
                     body: "Build was Successful",
                     attachLog: true
+                    )
                 }
             }
         }
