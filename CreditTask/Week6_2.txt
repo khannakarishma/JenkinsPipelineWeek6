@@ -35,8 +35,7 @@ environment {
                     echo "Automation Used: Pytest for unit tests"
 
                     echo " _______________________________Description_________________________________"
-                    echo "Pytest is a popular testing framework for automating unit tests in Python. 
-                    It provides a simple and effective way to write and execute test cases for your Python code. "
+                    echo "Pytest is a popular testing framework for automating unit tests in Python. It provides a simple and effective way to write and execute test cases for your Python code. "
             
                 }
 
@@ -49,8 +48,7 @@ environment {
                     echo "Automation Tool Used: Postman testing with scripts using JavaScript "
 
                     echo " _______________________________Description_________________________________"
-                    echo "Postman allows user to write automated test scripts using JavaScript to validate API responses, 
-                    perform data-driven testing, and execute a series of test cases automatically."
+                    echo "Postman allows user to write automated test scripts using JavaScript to validate API responses, perform data-driven testing, and execute a series of test cases automatically."
 
                 }
             
