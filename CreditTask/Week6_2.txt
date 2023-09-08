@@ -56,6 +56,7 @@ environment {
                     body: 'The unit and integration tests have passed successfully. Further stages in progress.',
                     attachLog: true
                     )
+                    echo "Email sent to user"
                 }
                 failure 
                 {
