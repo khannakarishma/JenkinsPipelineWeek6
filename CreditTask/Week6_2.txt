@@ -50,12 +50,11 @@ environment {
             {
                 success 
                 {
-                    emailext (
-                    to: "karishma24khanna@gmail.com", 
+                    emailext to: "karishma24khanna@gmail.com", 
                     subject: 'Unit & Integration Tests passed',
                     body: 'The unit and integration tests have passed successfully. Further stages in progress.',
                     attachLog: true
-                    )
+                    
                     echo "Email sent to user"
                 }
                 failure 
