@@ -30,8 +30,8 @@ environment {
             {
                 
                 echo "Running unit tests."
-                echo "Unit Tests Successfully Completed"
-                echo "Automation Used: Pytest for unit tests"
+                echo "Unit Tests Successfully Completed."
+                echo "Automation Used: Pytest for unit tests."
 
                 echo " _______________________________Description_________________________________"
                 echo "Pytest is a popular testing framework for automating unit tests in Python. It provides a simple and effective way to write and execute test cases for your Python code. "
