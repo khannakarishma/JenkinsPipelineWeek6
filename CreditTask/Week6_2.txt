@@ -117,7 +117,7 @@ environment {
                 echo "Run integration tests on the staging environment $TESTING_ENVIRONMENT to ensure the application functions as expected in a production-like environment."
 
                 echo " _______________________________Description_________________________________"
-                echo "Automation Tool Used: Postman testing with scripts using JavaScript "
+                echo "Automation Tool Used: Postman testing with scripts using JavaScript."
             }
             post 
             {
